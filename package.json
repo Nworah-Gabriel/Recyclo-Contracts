@@ -1,0 +1,17 @@
+{
+  "name": "recyclo-foundry",
+  "version": "1.0.0",
+  "description": "Recyclo smart contracts for Celo blockchain",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test",
+    "test:gas": "forge test --gas-report",
+    "deploy:testnet": "forge script script/DeployTestnet.s.sol --rpc-url alfajores --broadcast --verify -vvvv",
+    "deploy:mainnet": "forge script script/Deploy.s.sol --rpc-url celo --broadcast --verify -vvvv",
+    "verify": "forge verify-contract --chain celo"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.0",
+    "prettier-plugin-solidity": "^1.1.0"
+  }
+}
