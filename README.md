@@ -131,15 +131,16 @@ forge test --match-test "testFuzz" -vv
 ```
 
 ## 🚀 Deployment
-1. Testnet Deployment (Alfajores)
+1. Testnet Deployment
 ```bash
 
 # Deploy complete ecosystem
 forge script script/DeployTestnet.s.sol:DeployTestnet \
-  --rpc-url alfajores \
+  --rpc-url https://rpc.ankr.com/celo_sepolia \
   --broadcast \
   --verify \
   -vvvv
+
 
 # Expected output:
 # RecycloToken deployed at: 0x...

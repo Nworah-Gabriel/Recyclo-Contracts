@@ -53,6 +53,22 @@
         "documentation": {}
     },
     {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -66,6 +82,22 @@
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "urllib",
+        "description": "urllib",
+        "isExtraImport": true,
+        "detail": "urllib",
         "documentation": {}
     },
     {
@@ -290,6 +322,222 @@
         "description": "lib.forge-std.scripts.vm",
         "peekOfCode": "VM_DOC = \"\"\"\\\n/// The `Vm` interface does allow manipulation of the EVM state. These are all intended to be used\n/// in tests, but it is not recommended to use these cheats in scripts.\n\"\"\"\ndef main():\n    parser = argparse.ArgumentParser(\n            description=\"Generate Vm.sol based on the cheatcodes json created by Foundry\")\n    parser.add_argument(\n            \"--from\",\n            metavar=\"PATH\",",
         "detail": "lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "CmpCheatcode",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class CmpCheatcode:\n    cheatcode: \"Cheatcode\"\n    def __init__(self, cheatcode: \"Cheatcode\"):\n        self.cheatcode = cheatcode\n    def __lt__(self, other: \"CmpCheatcode\") -> bool:\n        return cmp_cheatcode(self.cheatcode, other.cheatcode) < 0\n    def __eq__(self, other: \"CmpCheatcode\") -> bool:\n        return cmp_cheatcode(self.cheatcode, other.cheatcode) == 0\n    def __gt__(self, other: \"CmpCheatcode\") -> bool:\n        return cmp_cheatcode(self.cheatcode, other.cheatcode) > 0",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Visibility",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Visibility(PyEnum):\n    EXTERNAL: str = \"external\"\n    PUBLIC: str = \"public\"\n    INTERNAL: str = \"internal\"\n    PRIVATE: str = \"private\"\n    def __str__(self):\n        return self.value\nclass Mutability(PyEnum):\n    PURE: str = \"pure\"\n    VIEW: str = \"view\"",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Mutability",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Mutability(PyEnum):\n    PURE: str = \"pure\"\n    VIEW: str = \"view\"\n    NONE: str = \"\"\n    def __str__(self):\n        return self.value\nclass Function:\n    id: str\n    description: str\n    declaration: str",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Function",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Function:\n    id: str\n    description: str\n    declaration: str\n    visibility: Visibility\n    mutability: Mutability\n    signature: str\n    selector: str\n    selector_bytes: bytes\n    def __init__(",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Cheatcode",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Cheatcode:\n    func: Function\n    group: str\n    status: str\n    safety: str\n    def __init__(self, func: Function, group: str, status: str, safety: str):\n        self.func = func\n        self.group = group\n        self.status = status\n        self.safety = safety",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Error",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Error:\n    name: str\n    description: str\n    declaration: str\n    def __init__(self, name: str, description: str, declaration: str):\n        self.name = name\n        self.description = description\n        self.declaration = declaration\n    @staticmethod\n    def from_dict(d: dict) -> \"Error\":",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Event",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Event:\n    name: str\n    description: str\n    declaration: str\n    def __init__(self, name: str, description: str, declaration: str):\n        self.name = name\n        self.description = description\n        self.declaration = declaration\n    @staticmethod\n    def from_dict(d: dict) -> \"Event\":",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "EnumVariant",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class EnumVariant:\n    name: str\n    description: str\n    def __init__(self, name: str, description: str):\n        self.name = name\n        self.description = description\nclass Enum:\n    name: str\n    description: str\n    variants: list[EnumVariant]",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Enum:\n    name: str\n    description: str\n    variants: list[EnumVariant]\n    def __init__(self, name: str, description: str, variants: list[EnumVariant]):\n        self.name = name\n        self.description = description\n        self.variants = variants\n    @staticmethod\n    def from_dict(d: dict) -> \"Enum\":",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "StructField",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class StructField:\n    name: str\n    ty: str\n    description: str\n    def __init__(self, name: str, ty: str, description: str):\n        self.name = name\n        self.ty = ty\n        self.description = description\nclass Struct:\n    name: str",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Struct",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Struct:\n    name: str\n    description: str\n    fields: list[StructField]\n    def __init__(self, name: str, description: str, fields: list[StructField]):\n        self.name = name\n        self.description = description\n        self.fields = fields\n    @staticmethod\n    def from_dict(d: dict) -> \"Struct\":",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Cheatcodes",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Cheatcodes:\n    errors: list[Error]\n    events: list[Event]\n    enums: list[Enum]\n    structs: list[Struct]\n    cheatcodes: list[Cheatcode]\n    def __init__(\n        self,\n        errors: list[Error],\n        events: list[Event],",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "Item",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class Item(PyEnum):\n    ERROR: str = \"error\"\n    EVENT: str = \"event\"\n    ENUM: str = \"enum\"\n    STRUCT: str = \"struct\"\n    FUNCTION: str = \"function\"\nclass ItemOrder:\n    _list: list[Item]\n    def __init__(self, list: list[Item]) -> None:\n        assert len(list) <= len(Item), \"list must not contain more items than Item\"",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "ItemOrder",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class ItemOrder:\n    _list: list[Item]\n    def __init__(self, list: list[Item]) -> None:\n        assert len(list) <= len(Item), \"list must not contain more items than Item\"\n        assert len(list) == len(set(list)), \"list must not contain duplicates\"\n        self._list = list\n        pass\n    def get_list(self) -> list[Item]:\n        return self._list\n    @staticmethod",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "CheatcodesPrinter",
+        "kind": 6,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "class CheatcodesPrinter:\n    buffer: str\n    prelude: bool\n    spdx_identifier: str\n    solidity_requirement: str\n    abicoder_v2: bool\n    block_doc_style: bool\n    indent_level: int\n    _indent_str: str\n    nl_str: str",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(\n            description=\"Generate Vm.sol based on the cheatcodes json created by Foundry\")\n    parser.add_argument(\n            \"--from\",\n            metavar=\"PATH\",\n            dest=\"path\",\n            required=False,\n            help=\"path to a json file containing the Vm interface, as generated by Foundry\")\n    args = parser.parse_args()",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "cmp_cheatcode",
+        "kind": 2,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "def cmp_cheatcode(a: \"Cheatcode\", b: \"Cheatcode\") -> int:\n    if a.group != b.group:\n        return -1 if a.group < b.group else 1\n    if a.status != b.status:\n        return -1 if a.status < b.status else 1\n    if a.safety != b.safety:\n        return -1 if a.safety < b.safety else 1\n    if a.func.id != b.func.id:\n        return -1 if a.func.id < b.func.id else 1\n    return 0",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "prefix_with_group_headers",
+        "kind": 2,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "def prefix_with_group_headers(cheats: list[\"Cheatcode\"]):\n    s = set()\n    for i, cheat in enumerate(cheats):\n        if cheat.group in s:\n            continue\n        s.add(cheat.group)\n        c = copy.deepcopy(cheat)\n        c.func.description = \"\"\n        c.func.declaration = f\"// ======== {group(c.group)} ========\"\n        cheats.insert(i, c)",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "group",
+        "kind": 2,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "def group(s: str) -> str:\n    if s == \"evm\":\n        return \"EVM\"\n    if s == \"json\":\n        return \"JSON\"\n    return s[0].upper() + s[1:]\nclass Visibility(PyEnum):\n    EXTERNAL: str = \"external\"\n    PUBLIC: str = \"public\"\n    INTERNAL: str = \"internal\"",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "VoidFn",
+        "kind": 5,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "VoidFn = Callable[[], None]\nCHEATCODES_JSON_URL = \"https://raw.githubusercontent.com/foundry-rs/foundry/master/crates/cheatcodes/assets/cheatcodes.json\"\nOUT_PATH = \"src/Vm.sol\"\nVM_SAFE_DOC = \"\"\"\\\n/// The `VmSafe` interface does not allow manipulation of the EVM state or other actions that may\n/// result in Script simulations differing from on-chain execution. It is recommended to only use\n/// these cheats in scripts.\n\"\"\"\nVM_DOC = \"\"\"\\\n/// The `Vm` interface does allow manipulation of the EVM state. These are all intended to be used",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "CHEATCODES_JSON_URL",
+        "kind": 5,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "CHEATCODES_JSON_URL = \"https://raw.githubusercontent.com/foundry-rs/foundry/master/crates/cheatcodes/assets/cheatcodes.json\"\nOUT_PATH = \"src/Vm.sol\"\nVM_SAFE_DOC = \"\"\"\\\n/// The `VmSafe` interface does not allow manipulation of the EVM state or other actions that may\n/// result in Script simulations differing from on-chain execution. It is recommended to only use\n/// these cheats in scripts.\n\"\"\"\nVM_DOC = \"\"\"\\\n/// The `Vm` interface does allow manipulation of the EVM state. These are all intended to be used\n/// in tests, but it is not recommended to use these cheats in scripts.",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "OUT_PATH",
+        "kind": 5,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "OUT_PATH = \"src/Vm.sol\"\nVM_SAFE_DOC = \"\"\"\\\n/// The `VmSafe` interface does not allow manipulation of the EVM state or other actions that may\n/// result in Script simulations differing from on-chain execution. It is recommended to only use\n/// these cheats in scripts.\n\"\"\"\nVM_DOC = \"\"\"\\\n/// The `Vm` interface does allow manipulation of the EVM state. These are all intended to be used\n/// in tests, but it is not recommended to use these cheats in scripts.\n\"\"\"",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "VM_SAFE_DOC",
+        "kind": 5,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "VM_SAFE_DOC = \"\"\"\\\n/// The `VmSafe` interface does not allow manipulation of the EVM state or other actions that may\n/// result in Script simulations differing from on-chain execution. It is recommended to only use\n/// these cheats in scripts.\n\"\"\"\nVM_DOC = \"\"\"\\\n/// The `Vm` interface does allow manipulation of the EVM state. These are all intended to be used\n/// in tests, but it is not recommended to use these cheats in scripts.\n\"\"\"\ndef main():",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "documentation": {}
+    },
+    {
+        "label": "VM_DOC",
+        "kind": 5,
+        "importPath": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "description": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
+        "peekOfCode": "VM_DOC = \"\"\"\\\n/// The `Vm` interface does allow manipulation of the EVM state. These are all intended to be used\n/// in tests, but it is not recommended to use these cheats in scripts.\n\"\"\"\ndef main():\n    parser = argparse.ArgumentParser(\n            description=\"Generate Vm.sol based on the cheatcodes json created by Foundry\")\n    parser.add_argument(\n            \"--from\",\n            metavar=\"PATH\",",
+        "detail": "lib.openzeppelin-contracts.lib.forge-std.scripts.vm",
         "documentation": {}
     }
 ]
